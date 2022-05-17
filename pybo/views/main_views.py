@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Flask, Blueprint, url_for, redirect,  render_template
+from werkzeug.utils import redirect
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
@@ -6,6 +7,11 @@ bp = Blueprint('main', __name__, url_prefix='/')
 @bp.route('/')
 def home():
     return render_template('main/Home.html')
+
+
+@bp.route('/qna')
+def index():
+    return redirect(url_for('question._list'))
 
 
 @bp.route('/about')
@@ -21,3 +27,8 @@ def feedback():
 @bp.route('/Enter_URL_Before')
 def Enter_URL_Before():
     return render_template('main/Enter_URL_Before.html')
+
+
+@bp.route('/github')
+def github():
+    return redirect("https://github.com/minjimango/flask_project.git")
