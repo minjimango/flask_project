@@ -27,8 +27,3 @@ def feedback():
 @bp.route('/Enter_URL_Before')
 def Enter_URL_Before():
     return render_template('main/Enter_URL_Before.html')
-
-
-@bp.route('/github')
-def github():
-    return redirect("https://github.com/minjimango/flask_project.git")
